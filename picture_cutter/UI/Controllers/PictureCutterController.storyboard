@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Picture Cutter Controller-->
+        <scene sceneID="XNj-iH-XQ1">
+            <objects>
+                <viewController storyboardIdentifier="PictureCutterController" id="r1y-kF-1yv" customClass="PictureCutterController" customModule="picture_cutter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FFa-Iq-aeL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FXX-ug-Qua" userLabel="transformationView">
+                                <rect key="frame" x="107" y="353" width="200" height="200"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mops.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="LhX-fM-dGu" userLabel="imageView">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="LhX-fM-dGu" firstAttribute="leading" secondItem="FXX-ug-Qua" secondAttribute="leading" id="0tP-Zx-fwy"/>
+                                    <constraint firstItem="LhX-fM-dGu" firstAttribute="top" secondItem="FXX-ug-Qua" secondAttribute="top" id="KrD-Rt-01f"/>
+                                    <constraint firstAttribute="height" constant="200" id="XSG-Oi-5qL"/>
+                                    <constraint firstAttribute="bottom" secondItem="LhX-fM-dGu" secondAttribute="bottom" id="YCw-UB-95b"/>
+                                    <constraint firstAttribute="width" constant="200" id="oI1-5t-dJN"/>
+                                    <constraint firstAttribute="trailing" secondItem="LhX-fM-dGu" secondAttribute="trailing" id="yni-e3-09o"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Da0-OA-8Lh">
+                                <rect key="frame" x="0.0" y="822" width="414" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6NO-sJ-Th6"/>
+                                </constraints>
+                                <state key="normal" title="OK"/>
+                                <connections>
+                                    <action selector="didTapOk:" destination="r1y-kF-1yv" eventType="touchUpInside" id="lmn-Qj-h5v"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="FXX-ug-Qua" firstAttribute="centerY" secondItem="SnI-e3-kxN" secondAttribute="centerY" id="7n1-RL-MEE"/>
+                            <constraint firstItem="Da0-OA-8Lh" firstAttribute="bottom" secondItem="SnI-e3-kxN" secondAttribute="bottom" id="BZ3-go-UMz"/>
+                            <constraint firstItem="SnI-e3-kxN" firstAttribute="trailing" secondItem="Da0-OA-8Lh" secondAttribute="trailing" id="fDn-vG-cOB"/>
+                            <constraint firstItem="Da0-OA-8Lh" firstAttribute="leading" secondItem="SnI-e3-kxN" secondAttribute="leading" id="fe8-mN-FVY"/>
+                            <constraint firstItem="FXX-ug-Qua" firstAttribute="centerX" secondItem="SnI-e3-kxN" secondAttribute="centerX" id="v3N-yC-jbY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SnI-e3-kxN"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="LhX-fM-dGu" id="HoB-j5-GAD"/>
+                        <outlet property="transformationView" destination="FXX-ug-Qua" id="Y3k-yA-VVx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xvw-rD-K32" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="55" y="76"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="mops.jpg" width="1440" height="810"/>
+    </resources>
+</document>

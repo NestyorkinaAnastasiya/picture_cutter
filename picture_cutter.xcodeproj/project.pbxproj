@@ -1,0 +1,630 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6152E0F32519E71200C644AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6152E0F22519E71200C644AB /* AppDelegate.swift */; };
+		6152E0F52519E71300C644AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6152E0F42519E71300C644AB /* SceneDelegate.swift */; };
+		6152E0F92519E71400C644AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6152E0F82519E71400C644AB /* Assets.xcassets */; };
+		6152E0FC2519E71400C644AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6152E0FB2519E71400C644AB /* Preview Assets.xcassets */; };
+		6152E10A2519E71400C644AB /* picture_cutterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6152E1092519E71400C644AB /* picture_cutterTests.swift */; };
+		6152E1152519E71400C644AB /* picture_cutterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6152E1142519E71400C644AB /* picture_cutterUITests.swift */; };
+		6152E1292519F2E700C644AB /* PictureCutterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6152E1282519F2E700C644AB /* PictureCutterController.swift */; };
+		6152E12B251A100D00C644AB /* PictureCutterController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6152E12A251A100D00C644AB /* PictureCutterController.storyboard */; };
+		6152E12D251A106900C644AB /* mops.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6152E12C251A106900C644AB /* mops.jpg */; };
+		6152E12F251A115D00C644AB /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6152E12E251A115D00C644AB /* Storyboarded.swift */; };
+		61869251251C687700FA6C30 /* PictureCutterModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61869250251C687700FA6C30 /* PictureCutterModelView.swift */; };
+		61869253251DC26800FA6C30 /* dogs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61869252251DC26800FA6C30 /* dogs.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6152E1062519E71400C644AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6152E0E72519E71200C644AB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6152E0EE2519E71200C644AB;
+			remoteInfo = picture_cutter;
+		};
+		6152E1112519E71400C644AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6152E0E72519E71200C644AB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6152E0EE2519E71200C644AB;
+			remoteInfo = picture_cutter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6152E0EF2519E71200C644AB /* picture_cutter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = picture_cutter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6152E0F22519E71200C644AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6152E0F42519E71300C644AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		6152E0F82519E71400C644AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6152E0FB2519E71400C644AB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6152E1002519E71400C644AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6152E1052519E71400C644AB /* picture_cutterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = picture_cutterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6152E1092519E71400C644AB /* picture_cutterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = picture_cutterTests.swift; sourceTree = "<group>"; };
+		6152E10B2519E71400C644AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../picture_cutterTests/Info.plist; sourceTree = "<group>"; };
+		6152E1102519E71400C644AB /* picture_cutterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = picture_cutterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6152E1142519E71400C644AB /* picture_cutterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = picture_cutterUITests.swift; sourceTree = "<group>"; };
+		6152E1162519E71400C644AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6152E1282519F2E700C644AB /* PictureCutterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCutterController.swift; sourceTree = "<group>"; };
+		6152E12A251A100D00C644AB /* PictureCutterController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PictureCutterController.storyboard; sourceTree = "<group>"; };
+		6152E12C251A106900C644AB /* mops.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mops.jpg; sourceTree = "<group>"; };
+		6152E12E251A115D00C644AB /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		61869250251C687700FA6C30 /* PictureCutterModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCutterModelView.swift; sourceTree = "<group>"; };
+		61869252251DC26800FA6C30 /* dogs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dogs.jpg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6152E0EC2519E71200C644AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6152E1022519E71400C644AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6152E10D2519E71400C644AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6152E0E62519E71200C644AB = {
+			isa = PBXGroup;
+			children = (
+				6152E0F12519E71200C644AB /* picture_cutter */,
+				6152E1082519E71400C644AB /* picture_cutterTests */,
+				6152E1132519E71400C644AB /* picture_cutterUITests */,
+				6152E0F02519E71200C644AB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6152E0F02519E71200C644AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6152E0EF2519E71200C644AB /* picture_cutter.app */,
+				6152E1052519E71400C644AB /* picture_cutterTests.xctest */,
+				6152E1102519E71400C644AB /* picture_cutterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6152E0F12519E71200C644AB /* picture_cutter */ = {
+			isa = PBXGroup;
+			children = (
+				6152E1252519E7DC00C644AB /* Resources */,
+				6152E1222519E74B00C644AB /* UI */,
+				6152E1002519E71400C644AB /* Info.plist */,
+			);
+			path = picture_cutter;
+			sourceTree = "<group>";
+		};
+		6152E0FA2519E71400C644AB /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				6152E0FB2519E71400C644AB /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6152E1082519E71400C644AB /* picture_cutterTests */ = {
+			isa = PBXGroup;
+			children = (
+				6152E1092519E71400C644AB /* picture_cutterTests.swift */,
+			);
+			path = picture_cutterTests;
+			sourceTree = "<group>";
+		};
+		6152E1132519E71400C644AB /* picture_cutterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6152E10B2519E71400C644AB /* Info.plist */,
+				6152E1142519E71400C644AB /* picture_cutterUITests.swift */,
+				6152E1162519E71400C644AB /* Info.plist */,
+			);
+			path = picture_cutterUITests;
+			sourceTree = "<group>";
+		};
+		6152E1222519E74B00C644AB /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				6152E1242519E7BC00C644AB /* Controllers */,
+				6152E1232519E75B00C644AB /* AppDelegate */,
+				6152E12E251A115D00C644AB /* Storyboarded.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		6152E1232519E75B00C644AB /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				6152E0F22519E71200C644AB /* AppDelegate.swift */,
+				6152E0F42519E71300C644AB /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		6152E1242519E7BC00C644AB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6152E1282519F2E700C644AB /* PictureCutterController.swift */,
+				6152E12A251A100D00C644AB /* PictureCutterController.storyboard */,
+				61869250251C687700FA6C30 /* PictureCutterModelView.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		6152E1252519E7DC00C644AB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				61869252251DC26800FA6C30 /* dogs.jpg */,
+				6152E12C251A106900C644AB /* mops.jpg */,
+				6152E0F82519E71400C644AB /* Assets.xcassets */,
+				6152E0FA2519E71400C644AB /* Preview Content */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6152E0EE2519E71200C644AB /* picture_cutter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6152E1192519E71400C644AB /* Build configuration list for PBXNativeTarget "picture_cutter" */;
+			buildPhases = (
+				6152E0EB2519E71200C644AB /* Sources */,
+				6152E0EC2519E71200C644AB /* Frameworks */,
+				6152E0ED2519E71200C644AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = picture_cutter;
+			productName = picture_cutter;
+			productReference = 6152E0EF2519E71200C644AB /* picture_cutter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6152E1042519E71400C644AB /* picture_cutterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6152E11C2519E71400C644AB /* Build configuration list for PBXNativeTarget "picture_cutterTests" */;
+			buildPhases = (
+				6152E1012519E71400C644AB /* Sources */,
+				6152E1022519E71400C644AB /* Frameworks */,
+				6152E1032519E71400C644AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6152E1072519E71400C644AB /* PBXTargetDependency */,
+			);
+			name = picture_cutterTests;
+			productName = picture_cutterTests;
+			productReference = 6152E1052519E71400C644AB /* picture_cutterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6152E10F2519E71400C644AB /* picture_cutterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6152E11F2519E71400C644AB /* Build configuration list for PBXNativeTarget "picture_cutterUITests" */;
+			buildPhases = (
+				6152E10C2519E71400C644AB /* Sources */,
+				6152E10D2519E71400C644AB /* Frameworks */,
+				6152E10E2519E71400C644AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6152E1122519E71400C644AB /* PBXTargetDependency */,
+			);
+			name = picture_cutterUITests;
+			productName = picture_cutterUITests;
+			productReference = 6152E1102519E71400C644AB /* picture_cutterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6152E0E72519E71200C644AB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1170;
+				LastUpgradeCheck = 1170;
+				ORGANIZATIONNAME = "Anastasia Nesterkina";
+				TargetAttributes = {
+					6152E0EE2519E71200C644AB = {
+						CreatedOnToolsVersion = 11.7;
+					};
+					6152E1042519E71400C644AB = {
+						CreatedOnToolsVersion = 11.7;
+						TestTargetID = 6152E0EE2519E71200C644AB;
+					};
+					6152E10F2519E71400C644AB = {
+						CreatedOnToolsVersion = 11.7;
+						TestTargetID = 6152E0EE2519E71200C644AB;
+					};
+				};
+			};
+			buildConfigurationList = 6152E0EA2519E71200C644AB /* Build configuration list for PBXProject "picture_cutter" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6152E0E62519E71200C644AB;
+			productRefGroup = 6152E0F02519E71200C644AB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6152E0EE2519E71200C644AB /* picture_cutter */,
+				6152E1042519E71400C644AB /* picture_cutterTests */,
+				6152E10F2519E71400C644AB /* picture_cutterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6152E0ED2519E71200C644AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6152E12B251A100D00C644AB /* PictureCutterController.storyboard in Resources */,
+				61869253251DC26800FA6C30 /* dogs.jpg in Resources */,
+				6152E0FC2519E71400C644AB /* Preview Assets.xcassets in Resources */,
+				6152E12D251A106900C644AB /* mops.jpg in Resources */,
+				6152E0F92519E71400C644AB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6152E1032519E71400C644AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6152E10E2519E71400C644AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6152E0EB2519E71200C644AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6152E0F32519E71200C644AB /* AppDelegate.swift in Sources */,
+				61869251251C687700FA6C30 /* PictureCutterModelView.swift in Sources */,
+				6152E0F52519E71300C644AB /* SceneDelegate.swift in Sources */,
+				6152E12F251A115D00C644AB /* Storyboarded.swift in Sources */,
+				6152E1292519F2E700C644AB /* PictureCutterController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6152E1012519E71400C644AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6152E10A2519E71400C644AB /* picture_cutterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6152E10C2519E71400C644AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6152E1152519E71400C644AB /* picture_cutterUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6152E1072519E71400C644AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6152E0EE2519E71200C644AB /* picture_cutter */;
+			targetProxy = 6152E1062519E71400C644AB /* PBXContainerItemProxy */;
+		};
+		6152E1122519E71400C644AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6152E0EE2519E71200C644AB /* picture_cutter */;
+			targetProxy = 6152E1112519E71400C644AB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6152E1172519E71400C644AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6152E1182519E71400C644AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6152E11A2519E71400C644AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"picture_cutter/Resources/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = picture_cutter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "learning.picture-cutter";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6152E11B2519E71400C644AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"picture_cutter/Resources/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = picture_cutter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "learning.picture-cutter";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6152E11D2519E71400C644AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = picture_cutterTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "learning.picture-cutterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/picture_cutter.app/picture_cutter";
+			};
+			name = Debug;
+		};
+		6152E11E2519E71400C644AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = picture_cutterTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "learning.picture-cutterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/picture_cutter.app/picture_cutter";
+			};
+			name = Release;
+		};
+		6152E1202519E71400C644AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = picture_cutterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "learning.picture-cutterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = picture_cutter;
+			};
+			name = Debug;
+		};
+		6152E1212519E71400C644AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = picture_cutterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "learning.picture-cutterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = picture_cutter;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6152E0EA2519E71200C644AB /* Build configuration list for PBXProject "picture_cutter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6152E1172519E71400C644AB /* Debug */,
+				6152E1182519E71400C644AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6152E1192519E71400C644AB /* Build configuration list for PBXNativeTarget "picture_cutter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6152E11A2519E71400C644AB /* Debug */,
+				6152E11B2519E71400C644AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6152E11C2519E71400C644AB /* Build configuration list for PBXNativeTarget "picture_cutterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6152E11D2519E71400C644AB /* Debug */,
+				6152E11E2519E71400C644AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6152E11F2519E71400C644AB /* Build configuration list for PBXNativeTarget "picture_cutterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6152E1202519E71400C644AB /* Debug */,
+				6152E1212519E71400C644AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6152E0E72519E71200C644AB /* Project object */;
+}
