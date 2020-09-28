@@ -68,25 +68,26 @@ extension PictureCutterModelView {
         
         context.saveGState()
         
+        
         context.translateBy(x: 0.0, y: contextSize.height)
         context.scaleBy(x: 1.0, y: -1.0)
         
         let kScale = contextSize.width / 200
+        context.translateBy(x: translation.x * kScale,
+                            y: -translation.y * kScale)
         
-        context.scaleBy(x: 1/kScale, y: 1/kScale)
-        context.translateBy(x: translation.x,
-                            y: -translation.y)
-        
-        let translateMatrix = CGAffineTransform(translationX: contextSize.width / 2.0 / kScale,
-                                                y: contextSize.width / 2.0 / kScale)
-        let rotateMatrix = CGAffineTransform(rotationAngle: -rotation)
+        let translateMatrix = CGAffineTransform(translationX: -contextSize.width / 2.0,
+                                                y: -contextSize.width / 2.0)
+        let rotateMatrix = CGAffineTransform(a: ctm.a / scale,
+                                             b: -ctm.b / scale,
+                                             c: -ctm.c / scale,
+                                             d: ctm.d / scale,
+                                             tx: 0,
+                                             ty: 0)
         let invertedMatrix = translateMatrix.inverted()
         
         let transform = translateMatrix.concatenating(rotateMatrix).concatenating(invertedMatrix)
         context.concatenate(transform)
-        
-        context.scaleBy(x: kScale, y: kScale)
-        
         let x0 = (contextSize.width - imageSize.width * scale) / 2.0
         let y0 = (contextSize.height - imageSize.height * scale) / 2.0
         
