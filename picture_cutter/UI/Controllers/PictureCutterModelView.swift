@@ -30,19 +30,18 @@ extension PictureCutterModelView {
         context.translateBy(x: 0.0, y: contextSize.height)
         context.scaleBy(x: 1.0, y: -1.0)
         
-        
         let k = scaleCoefficient(contextSize: contextSize,
                                  imageSize: imageSize)
         
         context.scaleBy(x: k, y: k)
         
-        let x0 = (contextSize.width / k - imageSize.width * scale) / 2.0
-        let y0 = (contextSize.height / k - imageSize.height * scale) / 2.0
+        let x0 = (contextSize.width / k - imageSize.width) / 2.0
+        let y0 = (contextSize.height / k - imageSize.height) / 2.0
         
         context.draw(cgImage, in: CGRect(x: x0,
                                          y: y0,
-                                         width: imageSize.width * scale,
-                                         height: imageSize.height * scale))
+                                         width: imageSize.width,
+                                         height: imageSize.height))
         context.restoreGState()
         
         let result = UIGraphicsGetImageFromCurrentImageContext()
@@ -50,10 +49,11 @@ extension PictureCutterModelView {
         return result
     }
     
-    func drawImage() -> UIImage?  {
+    func drawImage(ctm: CGAffineTransform) -> UIImage?  {
         guard let image = mainImage else { return mainImage }
         var contextSize: CGSize
         let imageSize = image.size
+        
         if imageSize.width > imageSize.height {
             contextSize = CGSize(width: imageSize.width,
                                  height: imageSize.width)
@@ -73,25 +73,22 @@ extension PictureCutterModelView {
         
         let kScale = contextSize.width / 200
         
-        context.translateBy(x: translation.x * kScale,
-                            y: -translation.y * kScale)
+        context.scaleBy(x: 1/kScale, y: 1/kScale)
+        context.translateBy(x: translation.x,
+                            y: -translation.y)
         
-        context.translateBy(x: contextSize.width / 2.0,
-                            y: contextSize.height / 2.0)
+        let translateMatrix = CGAffineTransform(translationX: contextSize.width / 2.0 / kScale,
+                                                y: contextSize.width / 2.0 / kScale)
+        let rotateMatrix = CGAffineTransform(rotationAngle: -rotation)
+        let invertedMatrix = translateMatrix.inverted()
         
-        context.rotate(by: -rotation)
+        let transform = translateMatrix.concatenating(rotateMatrix).concatenating(invertedMatrix)
+        context.concatenate(transform)
         
-        context.translateBy(x: -contextSize.width / 2.0,
-                            y: -contextSize.height / 2.0)
+        context.scaleBy(x: kScale, y: kScale)
         
-        
-        let k = scaleCoefficient(contextSize: contextSize,
-                                 imageSize: imageSize)
-        
-        context.scaleBy(x: k, y: k)
-        
-        let x0 = (contextSize.width / k - imageSize.width * scale) / 2.0
-        let y0 = (contextSize.height / k - imageSize.height * scale) / 2.0
+        let x0 = (contextSize.width - imageSize.width * scale) / 2.0
+        let y0 = (contextSize.height - imageSize.height * scale) / 2.0
         
         context.draw(cgImage, in: CGRect(x: x0,
                                          y: y0,

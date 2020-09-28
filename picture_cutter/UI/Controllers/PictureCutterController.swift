@@ -33,7 +33,7 @@ class PictureCutterController: UIViewController, Storyboarded {
     }
     
     @IBAction func didTapOk(_ sender: Any) {
-        guard let image = modelView.drawImage() else { return }
+        guard let image = modelView.drawImage(ctm: imageView.transform) else { return }
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
            
     }
@@ -41,7 +41,6 @@ class PictureCutterController: UIViewController, Storyboarded {
     //MARK: - Add image to Library
     @objc private func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         if let error = error {
-            // we got back an error!
             showAlertWith(title: "Save error", message: error.localizedDescription)
         } else {
             showAlertWith(title: "Saved!", message: "Your image has been saved to your photos.")
@@ -59,8 +58,7 @@ class PictureCutterController: UIViewController, Storyboarded {
   //MARK: - UIGestureRecognizers
 private extension PictureCutterController {
     @objc func handleRotate(gesture: UIRotationGestureRecognizer) {
-        if gesture.state == UIGestureRecognizer.State.changed || gesture.state == UIGestureRecognizer.State.began {
-            
+        if gesture.state == UIGestureRecognizer.State.changed || gesture.state == UIGestureRecognizer.State.began {           
             let transformRotate = imageView.transform.rotated(by: gesture.rotation)
             imageView.transform = transformRotate
             
