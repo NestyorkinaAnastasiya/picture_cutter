@@ -60,34 +60,30 @@ extension PictureCutterViewModel {
             contextSize = CGSize(width: imageSize.height,
                                  height: imageSize.height)
         }
-        
         UIGraphicsBeginImageContextWithOptions(contextSize, false, 0.0)
         guard let cgImage = image.cgImage,
             let context = UIGraphicsGetCurrentContext()  else { return mainImage }
         
         context.saveGState()
-        
-        
-        
-        
+               
         let kScale = contextSize.width / 200
         let scaleTransform = CGAffineTransform(scaleX: 1/kScale, y: 1/kScale)
         let invertedScaleTransform = scaleTransform.inverted()
         
-        context.translateBy(x: 0.0, y: contextSize.height)
-        context.scaleBy(x: 1.0, y: -1.0)
-
+        context.translateBy(x: contextSize.width/2, y: contextSize.height/2)
         context.concatenate(scaleTransform)
         context.concatenate(ctm)
         context.concatenate(invertedScaleTransform)
-        context.scaleBy(x: 1/scale, y: 1/scale)
         
-        let x0 = (contextSize.width - imageSize.width * scale) / 2.0
-        let y0 = (contextSize.height - imageSize.height * scale) / 2.0
+        context.scaleBy(x: 1, y: -1)
+        
+        let x0 = -imageSize.width / 2.0
+        let y0 = -imageSize.height / 2.0
         context.draw(cgImage, in: CGRect(x: x0,
                                          y: y0,
-                                         width: imageSize.width * scale,
-                                         height: imageSize.height * scale))
+                                         width: imageSize.width,
+                                         height: imageSize.height))
+        
         context.restoreGState()
         
         let result = UIGraphicsGetImageFromCurrentImageContext()
