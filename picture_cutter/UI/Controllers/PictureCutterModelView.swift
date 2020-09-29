@@ -8,15 +8,14 @@
 
 import UIKit
 
-class PictureCutterModelView {
+class PictureCutterViewModel {
     private var mainImage = UIImage(named: "dogs.jpg")
-    private var scale: CGFloat = 1.0
-    private var rotation: CGFloat = 0.0
-    private var translation = CGPoint(x: 0.0, y: 0.0)
+    private var imageScaleCoefficient: CGFloat = 1
+    private var size = CGSize(width: 0, height: 0)
 }
 
 //MARK: Rendering
-extension PictureCutterModelView {
+extension PictureCutterViewModel {
     func copyImage() -> UIImage? {
         let contextSize = CGSize(width: 200, height: 200)
         
@@ -24,19 +23,19 @@ extension PictureCutterModelView {
         guard let image = mainImage, let cgImage = mainImage?.cgImage,
             let context = UIGraphicsGetCurrentContext()  else { return mainImage }
         let imageSize = newImageSize(image: image)
-        
+        size = imageSize
         context.saveGState()
         
         context.translateBy(x: 0.0, y: contextSize.height)
         context.scaleBy(x: 1.0, y: -1.0)
         
-        let k = scaleCoefficient(contextSize: contextSize,
+        imageScaleCoefficient = scaleCoefficient(contextSize: contextSize,
                                  imageSize: imageSize)
         
-        context.scaleBy(x: k, y: k)
+        context.scaleBy(x: imageScaleCoefficient, y: imageScaleCoefficient)
         
-        let x0 = (contextSize.width / k - imageSize.width) / 2.0
-        let y0 = (contextSize.height / k - imageSize.height) / 2.0
+        let x0 = (contextSize.width / imageScaleCoefficient - imageSize.width) / 2.0
+        let y0 = (contextSize.height / imageScaleCoefficient - imageSize.height) / 2.0
         
         context.draw(cgImage, in: CGRect(x: x0,
                                          y: y0,
@@ -49,7 +48,7 @@ extension PictureCutterModelView {
         return result
     }
     
-    func drawImage(ctm: CGAffineTransform) -> UIImage?  {
+    func drawImage(ctm: CGAffineTransform, scale: CGFloat) -> UIImage?  {
         guard let image = mainImage else { return mainImage }
         var contextSize: CGSize
         let imageSize = image.size
@@ -69,28 +68,22 @@ extension PictureCutterModelView {
         context.saveGState()
         
         
-        context.translateBy(x: 0.0, y: contextSize.height)
-        context.scaleBy(x: 1.0, y: -1.0)
+        
         
         let kScale = contextSize.width / 200
-        context.translateBy(x: translation.x * kScale,
-                            y: -translation.y * kScale)
+        let scaleTransform = CGAffineTransform(scaleX: 1/kScale, y: 1/kScale)
+        let invertedScaleTransform = scaleTransform.inverted()
         
-        let translateMatrix = CGAffineTransform(translationX: -contextSize.width / 2.0,
-                                                y: -contextSize.width / 2.0)
-        let rotateMatrix = CGAffineTransform(a: ctm.a / scale,
-                                             b: -ctm.b / scale,
-                                             c: -ctm.c / scale,
-                                             d: ctm.d / scale,
-                                             tx: 0,
-                                             ty: 0)
-        let invertedMatrix = translateMatrix.inverted()
+        context.translateBy(x: 0.0, y: contextSize.height)
+        context.scaleBy(x: 1.0, y: -1.0)
+
+        context.concatenate(scaleTransform)
+        context.concatenate(ctm)
+        context.concatenate(invertedScaleTransform)
+        context.scaleBy(x: 1/scale, y: 1/scale)
         
-        let transform = translateMatrix.concatenating(rotateMatrix).concatenating(invertedMatrix)
-        context.concatenate(transform)
         let x0 = (contextSize.width - imageSize.width * scale) / 2.0
         let y0 = (contextSize.height - imageSize.height * scale) / 2.0
-        
         context.draw(cgImage, in: CGRect(x: x0,
                                          y: y0,
                                          width: imageSize.width * scale,
@@ -134,22 +127,5 @@ extension PictureCutterModelView {
         }
         
         return CGSize(width: width, height: height)
-    }
-}
-
-extension PictureCutterModelView {
-    func handleRotate(rotation: CGFloat) {
-        self.rotation += rotation
-    }
-    
-    @objc func handlePinch(scale: CGFloat){
-        self.scale *= scale
-        translation.x *= scale
-        translation.y *= scale
-    }
-    
-    @objc func handlePan(translation: CGPoint) {
-        self.translation.x += translation.x
-        self.translation.y += translation.y
     }
 }

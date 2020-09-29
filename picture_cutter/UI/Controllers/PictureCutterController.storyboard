@@ -55,8 +55,8 @@
                         <viewLayoutGuide key="safeArea" id="SnI-e3-kxN"/>
                     </view>
                     <connections>
+                        <outlet property="containerView" destination="FXX-ug-Qua" id="Y3k-yA-VVx"/>
                         <outlet property="imageView" destination="LhX-fM-dGu" id="HoB-j5-GAD"/>
-                        <outlet property="transformationView" destination="FXX-ug-Qua" id="Y3k-yA-VVx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xvw-rD-K32" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

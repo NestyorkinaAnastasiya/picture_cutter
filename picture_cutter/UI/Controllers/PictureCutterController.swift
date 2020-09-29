@@ -10,30 +10,31 @@ import Foundation
 import UIKit
     
 class PictureCutterController: UIViewController, Storyboarded {
-    @IBOutlet private weak var transformationView: UIView!
+    @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var imageView: UIImageView!
+    private var scale: CGFloat = 1
     
-    private let modelView = PictureCutterModelView()
+    private let modelView = PictureCutterViewModel()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let rotateGesture = UIRotationGestureRecognizer(target: self, action: #selector(handleRotate(gesture:)))
-        rotateGesture.delegate = self
-        imageView.addGestureRecognizer(rotateGesture)
+            super.viewDidLoad()
             
-        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(gesture:)))
-        rotateGesture.delegate = self
-        imageView.addGestureRecognizer(pinchGesture)
-        
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan(recognizer:)))
-        imageView.addGestureRecognizer(pan)
-        
-        imageView.image = modelView.copyImage()
+            let rotateGesture = UIRotationGestureRecognizer(target: self, action: #selector(handleRotate(recognizer:)))
+            rotateGesture.delegate = self
+            containerView.addGestureRecognizer(rotateGesture)
+                
+            let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch(recognizer:)))
+            rotateGesture.delegate = self
+            containerView.addGestureRecognizer(pinchGesture)
+            
+            let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan(recognizer:)))
+            containerView.addGestureRecognizer(pan)
+            
+            imageView.image = modelView.copyImage()
     }
     
     @IBAction func didTapOk(_ sender: Any) {
-        guard let image = modelView.drawImage(ctm: imageView.transform) else { return }
+        guard let image = modelView.drawImage(ctm: imageView.transform, scale: scale) else { return }
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
            
     }
@@ -57,39 +58,33 @@ class PictureCutterController: UIViewController, Storyboarded {
 
   //MARK: - UIGestureRecognizers
 private extension PictureCutterController {
-    @objc func handleRotate(gesture: UIRotationGestureRecognizer) {
-        if gesture.state == UIGestureRecognizer.State.changed || gesture.state == UIGestureRecognizer.State.began {           
-            let transformRotate = imageView.transform.rotated(by: gesture.rotation)
-            imageView.transform = transformRotate
-            
-            modelView.handleRotate(rotation: gesture.rotation)
-            
-            gesture.rotation = 0
-        }
+    @objc func handleRotate(recognizer: UIRotationGestureRecognizer) {
+        let rotation = CGAffineTransform(rotationAngle: recognizer.rotation)
+        let transform = imageView.transform.concatenating(rotation)
+        
+        imageView.transform = transform
+
+        recognizer.rotation = 0
     }
     
-    @objc func handlePinch(gesture: UIPinchGestureRecognizer) {
-        if gesture.state == UIGestureRecognizer.State.changed || gesture.state == UIGestureRecognizer.State.began {
-            let scale = gesture.scale
-            
-            let transform = imageView.transform.scaledBy(x: scale, y: scale)
-            imageView.transform = transform
-            
-            modelView.handlePinch(scale: scale)
-            
-            gesture.scale = 1
-        }
+    @objc func handlePinch(recognizer: UIPinchGestureRecognizer) {
+        let scale = CGAffineTransform(scaleX: recognizer.scale, y: recognizer.scale)
+        let transform = imageView.transform.concatenating(scale)
+
+        imageView.transform = transform
+        self.scale *= recognizer.scale
+        recognizer.scale = 1
     }
     
     @objc func handlePan(recognizer: UIPanGestureRecognizer) {
-        let translation = recognizer.translation(in: transformationView)
+        let view = containerView
+        let offset = recognizer.translation(in: view)
+        let translation = CGAffineTransform(translationX: offset.x, y: offset.y)
+        let transform = imageView.transform.concatenating(translation)
         
-        modelView.handlePan(translation: translation)
+        imageView.transform = transform
         
-        if let view = recognizer.view {
-            view.center = CGPoint(x: view.center.x + translation.x, y: view.center.y + translation.y)
-        }
-        recognizer.setTranslation(CGPoint.zero, in: transformationView)
+        recognizer.setTranslation(CGPoint.zero, in: view)
     }
 }
 
