@@ -12,7 +12,6 @@ import UIKit
 class PictureCutterController: UIViewController, Storyboarded {
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var imageView: UIImageView!
-    private var scale: CGFloat = 1
     
     private let modelView = PictureCutterViewModel()
     
@@ -34,7 +33,7 @@ class PictureCutterController: UIViewController, Storyboarded {
     }
     
     @IBAction func didTapOk(_ sender: Any) {
-        guard let image = modelView.drawImage(ctm: imageView.transform, scale: scale) else { return }
+        guard let image = modelView.drawImage(ctm: imageView.transform) else { return }
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
            
     }
@@ -72,7 +71,6 @@ private extension PictureCutterController {
         let transform = imageView.transform.concatenating(scale)
 
         imageView.transform = transform
-        self.scale *= recognizer.scale
         recognizer.scale = 1
     }
     

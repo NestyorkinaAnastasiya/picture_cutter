@@ -10,8 +10,6 @@ import UIKit
 
 class PictureCutterViewModel {
     private var mainImage = UIImage(named: "dogs.jpg")
-    private var imageScaleCoefficient: CGFloat = 1
-    private var size = CGSize(width: 0, height: 0)
 }
 
 //MARK: Rendering
@@ -23,19 +21,18 @@ extension PictureCutterViewModel {
         guard let image = mainImage, let cgImage = mainImage?.cgImage,
             let context = UIGraphicsGetCurrentContext()  else { return mainImage }
         let imageSize = newImageSize(image: image)
-        size = imageSize
         context.saveGState()
         
         context.translateBy(x: 0.0, y: contextSize.height)
         context.scaleBy(x: 1.0, y: -1.0)
         
-        imageScaleCoefficient = scaleCoefficient(contextSize: contextSize,
+        let k = scaleCoefficient(contextSize: contextSize,
                                  imageSize: imageSize)
         
-        context.scaleBy(x: imageScaleCoefficient, y: imageScaleCoefficient)
+        context.scaleBy(x: k, y: k)
         
-        let x0 = (contextSize.width / imageScaleCoefficient - imageSize.width) / 2.0
-        let y0 = (contextSize.height / imageScaleCoefficient - imageSize.height) / 2.0
+        let x0 = (contextSize.width / k - imageSize.width) / 2.0
+        let y0 = (contextSize.height / k - imageSize.height) / 2.0
         
         context.draw(cgImage, in: CGRect(x: x0,
                                          y: y0,
@@ -48,7 +45,7 @@ extension PictureCutterViewModel {
         return result
     }
     
-    func drawImage(ctm: CGAffineTransform, scale: CGFloat) -> UIImage?  {
+    func drawImage(ctm: CGAffineTransform) -> UIImage?  {
         guard let image = mainImage else { return mainImage }
         var contextSize: CGSize
         let imageSize = image.size
@@ -63,26 +60,32 @@ extension PictureCutterViewModel {
         UIGraphicsBeginImageContextWithOptions(contextSize, false, 0.0)
         guard let cgImage = image.cgImage,
             let context = UIGraphicsGetCurrentContext()  else { return mainImage }
-        
-        context.saveGState()
                
         let kScale = contextSize.width / 200
-        let scaleTransform = CGAffineTransform(scaleX: 1/kScale, y: 1/kScale)
-        let invertedScaleTransform = scaleTransform.inverted()
-        let centerTransform = CGAffineTransform(translationX: contextSize.width/2, y: contextSize.height/2)
+        let scaleTransform = CGAffineTransform(scaleX: kScale, y: kScale)
+        
+        let centerTransform = CGAffineTransform(translationX: contextSize.width / 2,
+                                                y: contextSize.height / 2)
+        
         let translateTransform = CGAffineTransform(translationX: (contextSize.width - imageSize.width) / 2,
-                                                   y: contextSize.height - (contextSize.height - imageSize.height) / 2)
-              
+                                                   y: (contextSize.height - imageSize.height) / 2)     
+        
+        let upsideDown = CGAffineTransform(scaleX: 1, y: -1)
+            .concatenating(CGAffineTransform(translationX: 0,
+                                             y: CGFloat(contextSize.height)))
+        
+        
+        context.saveGState()
+
         context.concatenate(centerTransform)
         context.concatenate(scaleTransform)
         context.concatenate(ctm)
-        context.concatenate(invertedScaleTransform)
+        context.concatenate(scaleTransform.inverted())
         context.concatenate(centerTransform.inverted())
         
+        context.concatenate(upsideDown)
         context.concatenate(translateTransform)
-        
-        context.scaleBy(x: 1, y: -1)
-        
+
         context.draw(cgImage, in: CGRect(x: 0,
                                          y: 0,
                                          width: imageSize.width,
